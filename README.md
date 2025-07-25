@@ -39,5 +39,6 @@ Token is stored in `localStorage` and attached to all authorized requests.
 ---
 
 ## 🖼️ **Preview**
+<img width="1722" height="5818" alt="image" src="https://github.com/user-attachments/assets/334989ba-786f-4051-8837-2189397c473c" />
 
-![App Preview](https://github.com/user-attachments/assets/d3eb2e89-fbd2-42bd-b93c-b72c59ad0b7d)
+
