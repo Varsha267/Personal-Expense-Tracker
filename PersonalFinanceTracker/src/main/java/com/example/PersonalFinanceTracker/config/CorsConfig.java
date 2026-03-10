@@ -14,7 +14,8 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // allow all endpoints
-                        .allowedOrigins("http://localhost:5173") // your frontend URL
+                        .allowedOrigins("http://localhost:5173","https://personal-expense-tracker-ruby.vercel.app"
+) // your frontend URL
                         .allowedMethods("*") // GET, POST, PUT, DELETE etc.
                         .allowedHeaders("*")
                         .allowCredentials(true);
