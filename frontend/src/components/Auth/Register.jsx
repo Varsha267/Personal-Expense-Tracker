@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import registerImg from "../../assets/register.png"; // Use your image path
-
+import API from "../../api";
 const Register = () => {
     const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:8080/api/auth/register", formData);
+            const res = await axios.post(`${API}/api/auth/register`, formData);
             if (res.status === 200) {
                 alert("Registered successfully!");
                 if (res.data.token) localStorage.setItem("token", res.data.token);

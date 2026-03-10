@@ -1,7 +1,7 @@
 // src/components/Budget/SetBudgetForm.jsx
 import { useState } from "react";
 import axios from "axios";
-
+import API from "../../api";
 const SetBudgetForm = ({ onBudgetSet }) => {
     const [amount, setAmount] = useState("");
     const [month, setMonth] = useState(new Date().getMonth() + 1);
@@ -17,7 +17,7 @@ const SetBudgetForm = ({ onBudgetSet }) => {
 
         try {
             await axios.post(
-                "http://localhost:8080/api/budget/set",
+                `${API}/api/budget/set`,
                 { amount: parseFloat(amount), month, year },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

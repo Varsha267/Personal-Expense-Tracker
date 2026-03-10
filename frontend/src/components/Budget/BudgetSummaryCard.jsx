@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API from "../../api";
 
 const months = [
     "January", "February", "March", "April", "May", "June",
@@ -20,7 +21,7 @@ const BudgetSummaryCard = () => {
 
         try {
             const res = await axios.get(
-                `http://localhost:8080/api/budget/summary?year=${selectedYear}&month=${selectedMonth}`,
+                `${API}/api/budget/summary?year=${selectedYear}&month=${selectedMonth}`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             setSummary(res.data);

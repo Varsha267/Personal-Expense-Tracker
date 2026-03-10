@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import API from "../../api";
 const AddExpense = () => {
     const [formData, setFormData] = useState({
         title: "",
@@ -28,7 +28,7 @@ const AddExpense = () => {
         console.log("Submitting form with data:", formData);
 
         try {
-            const response = await axios.post("http://localhost:8080/api/expenses/add", formData, {
+            const response = await axios.post(`${API}/api/expenses/add`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

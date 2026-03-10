@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import API from "../../api";
 const ExpenseList = () => {
     const [expenses, setExpenses] = useState([]);
     const [filteredExpenses, setFilteredExpenses] = useState([]);
@@ -12,7 +12,7 @@ const ExpenseList = () => {
 
     const fetchExpenses = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/api/expenses/all", {
+            const res = await axios.get(`${API}/api/expenses/all`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -31,7 +31,7 @@ const ExpenseList = () => {
             const token = localStorage.getItem("token");
             console.log("Using token:", token);
 
-            await axios.delete(`http://localhost:8080/api/expenses/delete/${id}`, {
+            await axios.delete(`${API}/api/expenses/delete/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

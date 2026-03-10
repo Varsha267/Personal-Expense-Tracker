@@ -4,7 +4,7 @@ import {
     PieChart, Pie, Cell, Tooltip, Legend,
     BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer
 } from "recharts";
-
+import API from "../../api";
 const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff8042", "#00C49F", "#FFBB28"];
 
 const SummaryView = () => {
@@ -25,8 +25,8 @@ const SummaryView = () => {
 
         try {
             const [catRes, monthRes] = await Promise.all([
-                axios.get("http://localhost:8080/api/expenses/summary/category", { headers }),
-                axios.get(`http://localhost:8080/api/expenses/summary/month?year=${selectedYear}&month=${selectedMonth}`, { headers }),
+                axios.get(`${API}/api/expenses/summary/category`, { headers }),
+                axios.get(`${API}/api/expenses/summary/month?year=${selectedYear}&month=${selectedMonth}`, { headers }),
             ]);
 
             const catFormatted = Object.entries(catRes.data).map(([key, value]) => ({

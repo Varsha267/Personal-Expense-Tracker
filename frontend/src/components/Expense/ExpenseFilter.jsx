@@ -9,7 +9,7 @@ import {
     Tooltip,
     Legend,
 } from "chart.js";
-
+import API from "../../api";
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const ranges = ["today", "yesterday", "7days", "total"];
@@ -25,10 +25,10 @@ const ExpenseFilter = () => {
     const fetchSummaryAndTopCategory = async () => {
         try {
             const [summaryRes, topCategoryRes] = await Promise.all([
-                axios.get(`http://localhost:8080/api/expenses/summary?range=${selectedRange}`, {
+                axios.get(`${API}/api/expenses/summary?range=${selectedRange}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 }),
-                axios.get("http://localhost:8080/api/expenses/top-category", {
+                axios.get(`${API}/api/expenses/top-category`, {
                     headers: { Authorization: `Bearer ${token}` },
                 }),
             ]);
