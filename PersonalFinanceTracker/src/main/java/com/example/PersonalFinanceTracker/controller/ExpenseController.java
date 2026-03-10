@@ -18,7 +18,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173","https://personal-expense-tracker-ruby.vercel.app"})
 @RestController
 @RequestMapping("/api/expenses")
 @RequiredArgsConstructor
